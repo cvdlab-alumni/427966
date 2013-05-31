@@ -1,27 +1,4 @@
-!(function (exports){
-
-  var fs = require('fs');
-
-  var plasm_lib = require('plasm.js');
-  var obj = plasm_lib.plasm;
-  var fun = plasm_lib.plasm_fun;
-  var plasm = obj.plasm;
-  var Plasm = obj.Plasm;
-
-  var root = this;
-
-  Object.keys(fun).forEach(function (k) { 
-    root[k] = fun[k];
-  });
-
-  var p = new Plasm();
-  fun.PLASM(p);
-
-
-  var scmodel = (function () {
-  /*//////////////////////////////////////////*/
-
-  T = function (dims) {
+T = function (dims) {
     dims = dims.map(function(dim){
         return dim - 1;
     });
@@ -46,10 +23,13 @@ R = function (dims) {
 
 
 
+//Per scambiare le coordinate in pyplasm -> S1,S2,S3
+//Per scambiare le coordinate in Plasm.js -> S0,S1,S2
 S3=S2
 S2=S1
 S1=S0
 
+//Funzioni da pyplasm a Plasm.js
 
 VIEW = DRAW
 NN = REPLICA
@@ -423,17 +403,3 @@ bottle_rotated = T([1])([-6])(T([2])([-3])(R([2,1])(-2*PI/3.5)(bottle_model)))
 
 model = STRUCT([bottle_rotated, bubble_rotated,glass_rotated, water_rotated, cap_rotated, waterinside_rotated])
 
-
-  ///////////////////////////////////////////*/
-  return model
-  })();
-
-  exports.author = 'ingmichelegalli';
-  exports.category = 'others';
-  exports.scmodel = scmodel;
-
-  if (!module.parent) {
-    fs.writeFile('./data.json', JSON.stringify(scmodel.toJSON()));
-  }
-
-}(this));

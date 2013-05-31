@@ -23,17 +23,14 @@ R = function (dims) {
 
 
 
-//Per scambiare le coordinate in pyplasm -> S1,S2,S3
-//Per scambiare le coordinate in Plasm.js -> S0,S1,S2
 S3=S2
 S2=S1
 S1=S0
 
-//Funzioni da pyplasm a Plasm.js
+
 
 VIEW = DRAW
 NN = REPLICA
-
 
 semicircle_a = function(x1,y1,z,tx,ty,tz1,tz2){
     semix = x1/2;
@@ -401,8 +398,5 @@ water_rotated = S([1,2,3])([0.6,0.6,0.6])(T([1])([3])(R([2,1])(PI)(R([3,1])(PI/2
 glass_rotated = R([3,1])(PI/2)(S([0,1,2])([0.9,0.9,0.9])(glass_model))
 bottle_rotated = T([1])([-6])(T([2])([-3])(R([2,1])(-2*PI/3.5)(bottle_model)))
 
-final_model = STRUCT([bottle_rotated, bubble_rotated,glass_rotated, water_rotated, cap_rotated, waterinside_rotated])
+model = STRUCT([bottle_rotated, bubble_rotated,glass_rotated, water_rotated, cap_rotated, waterinside_rotated])
 
-
-
-VIEW(final_model)

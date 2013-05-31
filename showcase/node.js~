@@ -46,10 +46,13 @@ R = function (dims) {
 
 
 
+//Per scambiare le coordinate in pyplasm -> S1,S2,S3
+//Per scambiare le coordinate in Plasm.js -> S0,S1,S2
 S3=S2
 S2=S1
 S1=S0
 
+//Funzioni da pyplasm a Plasm.js
 
 VIEW = DRAW
 NN = REPLICA
