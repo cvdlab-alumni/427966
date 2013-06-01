@@ -23,14 +23,17 @@ R = function (dims) {
 
 
 
+//Per scambiare le coordinate in pyplasm -> S1,S2,S3
+//Per scambiare le coordinate in Plasm.js -> S0,S1,S2
 S3=S2
 S2=S1
 S1=S0
 
-
+//Funzioni da pyplasm a Plasm.js
 
 VIEW = DRAW
 NN = REPLICA
+
 
 semicircle_a = function(x1,y1,z,tx,ty,tz1,tz2){
     semix = x1/2;
@@ -291,6 +294,26 @@ waterinside4 = MAP(BEZIER(S2)([water15b,water16b]))(domain2)
 waterinside5 = MAP(BEZIER(S2)([water15a,water18b]))(domain2)
 water_inside = COLOR([0,110,110,1])(STRUCT([waterinside0,waterinside1,waterinside2,waterinside3,waterinside4,waterinside5]))
 
+/*THE FALLING DROPS*/
+drop1 = BEZIER(S1)([[0,0,0],[2,1,0],[3,0.5,0],[3,0,0]])
+drop2 = BEZIER(S1)([[0,0,0],[2,-1,0],[3,-0.5,0],[3,0,0]])
+drop3 = BEZIER(S1)([[0,0,0.3],[2,1.5,0.3],[3,1,0.3],[3,0,0.3]])
+drop4 = BEZIER(S1)([[0,0,0.3],[2,-1.5,0.3],[3,-1,0.3],[3,0,0.3]])
+drop5 = BEZIER(S1)([[0,0,0.6],[2,1,0.6],[3,0.5,0.6],[3,0,0.6]])
+drop6 = BEZIER(S1)([[0,0,0.6],[2,-1,0.6],[3,-0.5,0.6],[3,0,0.6]])
+drop7 = BEZIER(S1)([[0,0,0],[2,0,-1],[3,0,-0.5],[3,0,0]])
+drop8 = BEZIER(S1)([[0,0,0.6],[2,0,1.6],[3,0,1.1],[3,0,0.6]])
+
+drop_map1 = MAP(BEZIER(S2)([drop1,drop3,drop5]))(domain2)
+drop_map2 = MAP(BEZIER(S2)([drop2,drop4,drop6]))(domain2)
+drop_map3 = MAP(BEZIER(S2)([drop1,drop7,drop2]))(domain2)
+drop_map4 = MAP(BEZIER(S2)([drop5,drop8,drop6]))(domain2)
+drop = S([0,1,2])([0.2,0.2,0.2])(STRUCT([drop_map1,drop_map2,drop_map3,drop_map4]))
+
+drop_model1 = T([3])([4])(T([2])([-0.5])(R([2,3])(-2*PI/3)(R([2,1])([PI/2])(drop))))
+drop_model2 = T([3])([2])(T([2])([-1.5])(R([2,3])(-PI/2)(R([2,1])([PI/2])(drop))))
+drop_model3 = T([3])([5.5])(T([2])([3])(R([2,3])(-PI/2)(R([2,1])([PI/2])(drop))))
+
 /*THE FINAL WATER MODELS*/
 water_1 = MAP(BEZIER(S2)([water1a,water2a,water3a,water4a,water5a,water6a,water7a,water8a]))(domain2)
 water_2 = MAP(BEZIER(S2)([water1b,water2b,water3b,water4b,water5b,water6b,water7b,water8b]))(domain2)
@@ -298,9 +321,10 @@ water_3 = MAP(BEZIER(S2)([water9a,water10a,water11a,water12a,water13a,water14a,w
 water_4 = MAP(BEZIER(S2)([water9b,water10b,water11b,water12b,water13b,water14b,water15b]))(domain2)
 water_5 = MAP(BEZIER(S2)([water15a,water15b]))(domain2)
 
-water_model = COLOR([0,110,110,1])(STRUCT([water_1,water_2]))
+water_model1 = STRUCT([water_1,water_2])
 water_model2 = S([0,1,2])([0.9,0.9,1])(COLOR([0,110,110,1])(STRUCT([water_3,water_4,water_5])))
 
+water_model = COLOR([0,110,110,1])(STRUCT([water_model1,drop_model1,drop_model2,drop_model3]))
 
 /**********************************************THE GLASS***************************************************************/
 
