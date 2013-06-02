@@ -23,13 +23,10 @@ R = function (dims) {
 
 
 
-//Per scambiare le coordinate in pyplasm -> S1,S2,S3
-//Per scambiare le coordinate in Plasm.js -> S0,S1,S2
 S3=S2
 S2=S1
 S1=S0
 
-//Funzioni da pyplasm a Plasm.js
 
 VIEW = DRAW
 NN = REPLICA
@@ -54,7 +51,7 @@ domaininv = MAP([S2,S1])(domain2)
 
 /**********************************************THE BOTTLE**********************************************/
 
-/*THE BODY THE BOTTLE*/
+/*THE BODY OF THE BOTTLE*/
 bottlebody0 = BEZIER(S1)([[0,1.2,0],[0,1.2,1.5],[0,3.8,1.5],[0,3.8,-1.5],[0,1.2,-1.5],[0,1.2,0]]);
 bottlebody1 = BEZIER(S1)([[1,0,0],[1,0,4],[1,7,4],[1,7,-4],[1,0,-4],[1,0,0]]);
 bottlebody2 = BEZIER(S1)([[2.5,-0.3,0],[2.5,-0.3,5],[2.5,7.7,5],[2.5,7.7,-5],[2.5,-0.3,-5],[2.5,-0.3,0]]);
@@ -146,7 +143,7 @@ lete2 = T([2])([1.5])(T([1])([5.5])(T([3])([1.9])(lete1)))
 
 brand = COLOR([255,255,255,200])(lete2)
 
-/*THE FINAL MODEL*/
+/*THE FINAL BOTTLE MODEL*/
 bottle_model = STRUCT([bottlebody,brand])
 
 /****************************************************THE BUBBLE*************************************************************************/
