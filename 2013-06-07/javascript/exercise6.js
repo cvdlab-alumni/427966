@@ -1,0 +1,61 @@
+FV = [[5,6,7,8],
+[0,5,8],
+[0,4,5],
+[1,2,4,5],
+[2,3,5,6],
+[0,8,7], [3,6,7], [1,2,3], [0,1,4]
+]
+
+V = [[0,6],
+[0,0],
+[3,0],
+[6,0],
+[0,3],
+[3,3],
+[6,3],
+[6,6],
+[3,6]]
+
+
+
+function face(p){
+	var s2 = '';
+
+	var a = p.length;
+	for(var j=0; i<a; i++){
+		var b = p[j].length;
+		for(var i=0; i<b;i++){
+			if(i == 0){s2+=p[j][i]+' ';}					
+			else{
+				if(i == b-1){s2+=p[j][i]+'\n \n';}					
+				else{
+					s2+=p[j][i]+' ';									
+				}
+			}
+ 		}
+	}
+	return s2;
+}
+
+function vertex(p){
+	var s1 = '';
+
+	for (var j=0; j<p.length; j++){
+		var valore_c = p[j][2];									
+		if (valore_c===""){												
+			s1+=p[j][0]+' '+p[j][1]+' '+p[j][2]+'\n \n';
+		}
+		else{
+			s1+=p[j][0]+' '+p[j][1]+' 0 \n \n';
+		}
+	}
+	return s1;
+}
+
+
+function excecution_f(V,FV){
+	console.log(vertex(V));
+	console.log(face(FV));
+}
+
+excecution_f(V,FV);
