@@ -39,16 +39,13 @@ S = function (dims) {
   }
 
 
-//Per scambiare le coordinate in pyplasm -> S1,S2,S3
-//Per scambiare le coordinate in Plasm.js -> S0,S1,S2
 S3=S2
 S2=S1
 S1=S0
 
-//Funzioni da pyplasm a Plasm.js
-GRID = SIMPLEX_GRID
+
 VIEW = DRAW
-NN = REPLICA
+
 
 
 
@@ -149,7 +146,6 @@ baselittle = COLOR([84/255,84/255,84/255])(T([3])([-0.05])(T([2])([-0.65])(S([1,
 	(STRUCT([map1_baselittle,map2_baselittle,map3_baselittle,map4_baselittle,map5_baselittle])))))
 
 /* THE MODEL OF THE DOWN BASE*/
-basedown = T([2])([-0.65])(COLOR([213/255,214/255,182/255])(STRUCT([map1_basedown,map2_basedown,map3_basedown,map4_basedown,curve9_baselittle])))
-
+basedown = T([2])([-0.65])(COLOR([213/255,214/255,182/255])(STRUCT([map1_basedown,map2_basedown,map3_basedown,map4_basedown])))
 /* THE FINAL MODEL OF "T24 BASE QUADRA"*/
 t24basequadra_finalmodel = STRUCT([baseup,T([1])([0.3])(T([3])([0.85])(table_partup)),basedown,baselittle])
