@@ -147,6 +147,7 @@ map14_frontup = COLOR(COLOR_WOOD)(MAP(BEZIER(S2)([curve14_frontup,curve16_frontu
 frontup = STRUCT([map1_frontup,map2_frontup,map3_frontup,map4_frontup,map5_frontup,map6_frontup,
   map7_frontup,map8_frontup,map9_frontup,map10_frontup,map11_frontup,map12_frontup,map13_frontup,map14_frontup])
 
+
 /**************************************************THE MATTRESS***************************************************/
 
 /*THE CURVES OF THE MATTRESS*/
@@ -159,8 +160,8 @@ curve5_mattress = BEZIER(S1)([[0.3,0,0],[5.7,0,0]])
 curve6_mattress = BEZIER(S1)([[0.3,0,0.4],[5.7,0,0.4]])
 curve7_mattress = BEZIER(S1)([[0.3,8,0],[5.7,8,0]])
 curve8_mattress = BEZIER(S1)([[0.3,8,0.4],[5.7,8,0.4]])
-curve9_mattress = BEZIER(S1)([[3,0,-0.5],[3,8,-0.5]])
-curve10_mattress = BEZIER(S1)([[0.3,8,0],[1.5,8,-0.33],[4.5,8,-0.33],[5.7,8,0]])
+curve9_mattress = BEZIER(S1)([[3,0,-0.4],[3,8,-0.4]])
+curve10_mattress = BEZIER(S1)([[0.3,8,0],[1.5,8,-0.25],[4.5,8,-0.25],[5.7,8,0]])
 
 /*THE MAPS OF THE MATTRESS*/
 map1_mattress = MAP(BEZIER(S2)([curve1_mattress,curve9_mattress,curve2_mattress]))(domain2)
@@ -238,6 +239,7 @@ leg = S([1,2,3])([0.7,0.7,0.7])(STRUCT([map1_leg,map2_leg,map3_leg,map4_leg,map5
 
 legsx = T([1])([0.85])(T([2])([-1.3])(T([3])([8.15])(R([1,3])(PI/4)(R([1,2])(-PI/2)(leg)))))
 legdx = T([1])([7])(T([2])([-1.3])(T([3])([8.25])(R([1,3])(-PI/4)(R([1,2])(-PI/2)(leg)))))
+
 
 /*THE MODEL OF L15 BICOLORE*/
 L15BICOLORE_model = STRUCT([T([2])([-3.05])(T([1])([1])(front)),frontup,mattress,grid_structure,legsx,legdx])

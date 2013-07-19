@@ -85,12 +85,12 @@ map5_funnel = MAP(BEZIER(S2)([curve3a_funnel,curve3b_funnel]))(domain2)
 
 funnel = COLOR([64/255,64/255,64/255])(STRUCT([map1_funnel,map2_funnel,map3_funnel,map4_funnel,map5_funnel]))
 /*************************************************BODY & BASE**********************************/
-curve1a_body = semicircle_a(0.2,0.15,18,0,0,0,0)
-curve1b_body = semicircle_b(0.2,0.15,18,0,0,0,0)
-curve2a_body = semicircle_a(2.2,1.3,18,0,0,0,0)
-curve2b_body = semicircle_b(2.2,1.3,18,0,0,0,0)
-curve3a_body = semicircle_a(2.2,1.3,18.3,0,0,0,0)
-curve3b_body = semicircle_b(2.2,1.3,18.3,0,0,0,0)
+curve1a_body = semicircle_a(0.2,0.15,25,0,0,0,0)
+curve1b_body = semicircle_b(0.2,0.15,25,0,0,0,0)
+curve2a_body = semicircle_a(2.2,1.3,25,0,0,0,0)
+curve2b_body = semicircle_b(2.2,1.3,25,0,0,0,0)
+curve3a_body = semicircle_a(2.2,1.3,25.3,0,0,0,0)
+curve3b_body = semicircle_b(2.2,1.3,25.3,0,0,0,0)
 
 map1_body = COLOR([255/255,193/255,37/255])(MAP(BEZIER(S2)([curve3a_funnel,curve1a_body]))(domain2))
 map2_body = COLOR([255/255,193/255,37/255])(MAP(BEZIER(S2)([curve3b_funnel,curve1b_body]))(domain2))
