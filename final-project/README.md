@@ -1,4 +1,4 @@
 FINAL-PROJECT
 ======
 
-http://ingmichelegalli.github.io/Final-Project
+http://ingmichelegalli.github.io/index.html
